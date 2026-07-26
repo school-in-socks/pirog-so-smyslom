@@ -1,5 +1,7 @@
 
-const sold=0,target=7000,profit=281;
+const sold = DATA.sold;
+const target = DATA.target;
+const profit = DATA.profit;
 const p=sold/target*100;
 soldEl.textContent=sold.toLocaleString('ru-RU');
 function soldEl(){}
