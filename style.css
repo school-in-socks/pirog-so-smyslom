@@ -21,3 +21,70 @@ section{padding:60px 20px;max-width:1000px;margin:auto}
 .window{width:28px;height:28px;background:#bfe9ff;border:2px solid #666;top:105px}
 .w1{left:70px}.w2{left:165px}
 footer{text-align:center;padding:40px;color:#777}
+
+
+/* ===== Мобильная адаптация ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.overlay {
+    width: 100%;
+    max-width: 100%;
+    padding: 25px 18px;
+}
+
+h1 {
+    font-size: clamp(36px, 10vw, 58px);
+    line-height: 1.1;
+    word-break: normal;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.stat {
+    font-size: clamp(60px, 20vw, 90px);
+}
+
+.grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 15px;
+}
+
+.card {
+    width: 100%;
+    min-width: 0;
+}
+
+.btn {
+    width: 100%;
+    max-width: 320px;
+}
+
+section {
+    width: 100%;
+    padding: 40px 18px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+.house {
+    transform: scale(.85);
+}
