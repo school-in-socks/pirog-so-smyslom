@@ -210,7 +210,51 @@ h2 {
     margin-top:40px;
 }
 
+.photos {
+    text-align:center;
+}
 
+
+.slider {
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:20px 5px;
+}
+
+
+.slider img {
+    flex:0 0 85%;
+    max-width:450px;
+    height:420px;
+    object-fit:cover;
+    border-radius:25px;
+    scroll-snap-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+
+/* скрываем некрасивую полосу прокрутки */
+
+.slider::-webkit-scrollbar {
+    display:none;
+}
+
+
+@media(max-width:700px){
+
+.slider img {
+    height:360px;
+}
+
+}
+
+.dots {
+    color:#c96a2c;
+    font-size:20px;
+    margin-top:10px;
+}
 .gallery img {
     width:100%;
     border-radius:20px;
@@ -224,3 +268,5 @@ h2 {
 }
 
 }
+
+
