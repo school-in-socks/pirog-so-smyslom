@@ -81,6 +81,12 @@ section {
     padding: 40px 18px;
 }
 
+.lead {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 h2 {
     font-size: 32px;
 }
