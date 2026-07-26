@@ -115,3 +115,29 @@ h2 {
 .max {
     background: #0066ff;
 }
+
+.order-hint {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 25px 0 10px;
+    color: #333;
+}
+
+.order-hint span {
+    display: block;
+    font-size: 35px;
+    margin-top: 8px;
+    animation: arrow 1.2s infinite;
+}
+
+
+@keyframes arrow {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
