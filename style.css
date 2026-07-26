@@ -94,3 +94,24 @@ h2 {
 .house {
     transform: scale(.85);
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.buttons .btn {
+    min-width: 220px;
+    text-align: center;
+}
+
+.telegram {
+    background: #229ED9;
+}
+
+.max {
+    background: #0066ff;
+}
