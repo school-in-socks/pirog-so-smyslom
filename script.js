@@ -37,3 +37,27 @@ percent + "%";
 .catch(error => {
 console.log("Ошибка загрузки таблицы:", error);
 });
+
+const slider = document.querySelector('.slider');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+
+
+if(slider){
+
+next.addEventListener('click', ()=>{
+    slider.scrollBy({
+        left: slider.clientWidth,
+        behavior:'smooth'
+    });
+});
+
+
+prev.addEventListener('click', ()=>{
+    slider.scrollBy({
+        left:-slider.clientWidth,
+        behavior:'smooth'
+    });
+});
+
+}
