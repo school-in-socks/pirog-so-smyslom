@@ -1,78 +1,96 @@
-
-<!doctype html><html lang="ru"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Пирог со смыслом</title>
-<link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#203e49">
+  <meta name="description" content="7 тысяч домашних пирогов помогают создать пространство для детей семейного класса «Школа в носочках». Закажите пирог за 500 ₽ и станьте частью общего дела.">
+  <title>Пирог со смыслом — 7 тысяч пирогов для детского пространства</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="media.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-<header class="hero">
-<div class="overlay">
-<div class="product-photo">
-    <img src="images/DSC07667.jpg" alt="Пирог со смыслом">
-</div>
-<h1>Пирог со смыслом</h1>
-<p>Каждый пирог помогает создавать пространство для детей.</p>
-
-<div class="stat" id="sold">0</div>
-<div class="sub">Продано пирогов</div>
-
-<div class="progress"><div id="fill"></div></div>
-<div id="percent"></div>
-
-<div class="grid">
-<div class="card"><small>До цели </small><strong id="left"></strong></div>
-<div class="card"><small>Собрано </small><strong id="money"></strong></div>
-</div>
-
-<div class="order-hint">
-    🥧 Хотите заказать пирог со смыслом?
-    <span>👇</span>
-</div>
-    
-<div class="buttons">
-    <a class="btn telegram" href="https://t.me/AlexVlasuk" target="_blank">
-        ✈️ Telegram
-    </a>
-
-    <a class="btn max" href="https://max.ru/u/f9LHodD0cOIVzFV3U_w3m1CyIUhi8fEr8SxDGI-4qIJOm8XbBJArI7M9x0M" target="_blank">
-        💬 MAX
-    </a>
-</div>
-
-    <p class="order-note">
-Напишите нам — мы расскажем о наличии пирогов и оформим заказ ❤️
-</p>
-
-<section class="photos">
-
-<h2>Наш пирог</h2>
-
-<div class="slider-wrapper">
-
-<button class="slider-btn prev">←</button>
-
-<div class="slider">
-
-<img src="images/DSC07483.jpg">
-<img src="images/DSC07664.jpg">
-<img src="images/DSC07429.jpg">
-
-
-</div>
-
-<button class="slider-btn next">→</button>
-
-</div>
-
-<div class="dots">
-● ● ● ●
-</div>
-
-</section>
-    
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<header class="header wrap">
+  <a class="brand" href="#top" aria-label="Пирог со смыслом — главная"><span class="brand-heart" aria-hidden="true">♡</span><span>пирог<br><b>со смыслом</b></span></a>
+  <nav aria-label="Основная навигация"><a href="#story">О нас</a><a href="#space">Пространство</a><a href="#progress">Наша цель</a></nav>
+  <a class="button button-small" href="#order">Заказать пирог</a>
 </header>
+<main id="main">
+  <section class="hero wrap" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Акция «7 000 пирогов»</p>
+      <h1 id="hero-title">Маленький пирог.<br><em>Большое</em><br>общее дело.</h1>
+      <p class="hero-lead">Печём домашние пироги, чтобы создать пространство, где дети учатся, творят и растут вместе.</p>
+      <a class="button" href="#order">Заказать пирог <span class="button-price">500 ₽</span></a>
+      <p class="hero-note">Семейный класс «Школа в носочках»</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="images/optimized/DSC07667.webp" alt="Домашний пирог с миндальными лепестками и отрезанными кусочками" width="1200" height="1800" fetchpriority="high">
 
-<footer>Спасибо каждому, кто становится частью этой истории.</footer>
-<script src="data.js"></script>
-<script src="script.js"></script>
-</body></html>
+    </figure>
+  </section>
+
+  <section class="progress-section" id="progress" aria-labelledby="progress-title">
+    <div class="wrap progress-layout">
+      <div class="progress-copy"><p class="eyebrow">Каждый пирог приближает нас к цели</p><h2 id="progress-title">7 000 пирогов.<br>Одно общее <em>будущее.</em></h2><p>Средства от продажи, за вычетом расходов на выпечку, направляем на ремонт и обустройство детского пространства.</p></div>
+      <div class="counter-panel">
+        <div class="counter-top"><div><strong id="sold">—</strong><span>пирогов уже продано</span></div><span class="target">из <span id="target">7 000</span></span></div>
+        <div class="progress-track" id="progressbar" role="progressbar" aria-label="Пироги, проданные для создания пространства" aria-valuemin="0" aria-valuemax="7000" aria-valuetext="Загружаем данные"><div id="fill"></div></div>
+        <div class="progress-labels"><span id="percent">Загружаем данные…</span><span>До цели: <b id="left">—</b></span></div>
+        <div class="money-row"><span>На создание пространства</span><strong id="money">—</strong></div>
+        <p class="counter-note" id="counter-note">Расчёт по данным нашей таблицы продаж.</p>
+        <p id="counter-status" class="counter-status" role="status"></p>
+        <button class="text-button" id="retry-counter" type="button" hidden>Обновить счётчик</button>
+        <noscript><p>Для счётчика включите JavaScript. Заказать пирог можно по ссылкам ниже.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="pies wrap section" id="pies" aria-labelledby="pies-title">
+    <div class="section-heading"><div><p class="eyebrow">Домашняя выпечка с большой мечтой</p><h2 id="pies-title">Вкусно делиться.<br><em>Приятно помогать.</em></h2></div><p>К семейному чаепитию, в гости или в подарок. Мы печём домашние кексы с ягодами и фруктами — и называем их пирогами со смыслом.</p></div>
+    <div class="pie-carousel" role="region" aria-label="Фотографии пирогов"><div class="pie-slides" tabindex="0">
+      <figure><img src="images/optimized/DSC07483.webp" alt="Пирог с ягодами на светлом столе" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Для тёплых встреч</figcaption></figure>
+      <figure><img src="images/optimized/DSC07455.webp" alt="Кусочки домашнего пирога с ягодной начинкой" width="1200" height="1800" loading="lazy" decoding="async"></figure>
+      <figure><img src="images/optimized/DSC07434.webp" alt="Пирог, чашка чая и фирменный пакет «Пирог со смыслом»" width="1200" height="800" loading="lazy" decoding="async"><figcaption>В подарок со смыслом</figcaption></figure>
+    </div><button type="button" class="pie-nav pie-prev" data-step="-1" aria-label="Предыдущее фото">‹</button><button type="button" class="pie-nav pie-next" data-step="1" aria-label="Следующее фото">›</button></div>
+    <p class="gallery-note">Один пирог — <strong>500 ₽</strong>. Вкусы в наличии, состав и получение уточним при заказе.</p>
+  </section>
+
+  <section class="story section" id="story" aria-labelledby="story-title">
+    <div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow">Знакомьтесь, «Школа в носочках»</p><h2 id="story-title">Место, где можно<br><em>быть ребёнком.</em></h2></div><div><p>Мы — семейный класс. Здесь дети на семейном обучении осваивают школьную программу с учителями, дружат и открывают мир.</p><p>А после занятий — время для собственных идей. Для нас важно, чтобы дети пробовали, создавали и чувствовали, что их принимают.</p></div></div>
+      <div class="activities">
+        <article><span class="activity-mark" aria-hidden="true">✳</span><h3>Учимся и исследуем</h3><p>Эксперименты, научные проекты и открытия, которыми хочется поделиться.</p></article>
+        <article><span class="activity-mark" aria-hidden="true">✺</span><h3>Творим и пробуем</h3><p>Рисование, музыка, мастер-классы, концерты и детские ярмарки.</p></article>
+        <article><span class="activity-mark" aria-hidden="true">❋</span><h3>Растём вместе</h3><p>Походы, игры и дружба. Старшие помогают младшим, а идеи детей становятся общими делами.</p></article>
+      </div>
+      <div class="documentary-gallery" id="class-gallery" hidden></div>
+      <div id="class-video" hidden></div>
+    </div>
+  </section>
+
+  <section class="wrap section space-section" id="space" aria-labelledby="space-title">
+    <div class="space-card">
+      <div class="space-intro"><p class="eyebrow">Ради чего мы печём</p><h2 id="space-title">Больше места<br>для <em>детских идей.</em></h2><p>У нашего семейного класса уже есть жизнь, традиции и большие планы. Теперь мы готовим пространство, в котором всё это сможет расти.</p><a class="button button-light" href="#order">Стать частью истории</a></div>
+      <div class="space-stages">
+        <article><span class="stage-label">Сейчас</span><h3>Помещение уже есть</h3><p>Мы работаем над ремонтом и постепенно готовим его к занятиям и встречам с детьми.</p></article>
+        <article><span class="stage-label">Наша цель</span><h3>Пространство, наполненное жизнью</h3><p>Места для учёбы, творчества, проектов и совместных дел. Уютная среда, в которой детям интересно быть вместе.</p></article>
+        <p class="space-footnote">Покупая пирог, вы помогаете завершить ремонт и обустроить это пространство.</p>
+      </div>
+    </div>
+    <div class="documentary-gallery" id="space-gallery" hidden></div>
+  </section>
+
+  <section class="wrap section" id="future"><p class="eyebrow">Концепция интерьера</p><h2>Каким мы видим будущее пространство</h2><p>Светлые стены, пыльно-голубые детали и мебель из тёплой фанеры. Здесь мы хотим обустроить места для занятий, музыки и детских мастерских.</p></section>
+<section class="order wrap section" id="order" aria-labelledby="order-title">
+    <p class="eyebrow">Один простой шаг</p><h2 id="order-title">Пирог к вашему столу —<br><em>вклад в наше общее дело.</em></h2>
+    <p>Напишите нам в удобном мессенджере.<br>Подскажем вкусы, договоримся о количестве и получении.</p>
+    <div class="order-buttons"><a class="button" href="https://t.me/AlexVlasuk" target="_blank" rel="noopener noreferrer">Заказать в Telegram</a><a class="button button-outline" href="https://max.ru/u/f9LHodD0cOIVzFV3U_w3m1CyIUhi8fEr8SxDGI-4qIJOm8XbBJArI7M9x0M" target="_blank" rel="noopener noreferrer">Заказать в MAX</a></div>
+    <p class="order-thanks">Спасибо, что помогаете создавать место для счастливого детства.</p>
+  </section>
+</main>
+<footer class="footer wrap"><a class="brand" href="#top"><span class="brand-heart" aria-hidden="true">♡</span><span>пирог<br><b>со смыслом</b></span></a><p>Семейный класс «Школа в носочках»<br>Ставрополь · Сделано с теплом</p><a href="#progress">7 тысяч пирогов к большой цели</a></footer>
+</body>
+</html>
