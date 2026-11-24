@@ -98,3 +98,29 @@ for (const button of document.querySelectorAll('.pie-nav')) {
     track.scrollTo({left: next * width, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
   });
 }
+
+const viewer=document.querySelector('.viewer');
+const photoButtons=Array.from(document.querySelectorAll('.class-open'));
+const photos=[...photoButtons.map(b=>b.querySelector('img')),...document.querySelectorAll('.album-grid img')];
+const screenPhoto=viewer.querySelector('img');
+let currentPhoto=0;
+function showPhoto(index){
+  currentPhoto=(index+photos.length)%photos.length;
+  screenPhoto.src=photos[currentPhoto].getAttribute('src');
+  screenPhoto.alt=photos[currentPhoto].alt;
+  viewer.querySelector('output').textContent=(currentPhoto+1)+' / '+photos.length;
+}
+function openPhotos(index){showPhoto(index);viewer.showModal();}
+photoButtons.forEach((button,index)=>button.addEventListener('click',()=>openPhotos(index)));
+document.querySelectorAll('.album-thumb').forEach((button,index)=>button.addEventListener('click',()=>openPhotos(photoButtons.length+index)));
+viewer.querySelector('.close-viewer').onclick=()=>viewer.close();
+viewer.querySelector('.back-photo').onclick=()=>showPhoto(currentPhoto-1);
+viewer.querySelector('.next-photo').onclick=()=>showPhoto(currentPhoto+1);
+viewer.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();showPhoto(currentPhoto+(e.key==='ArrowLeft'?-1:1));}});
+let start=null;
+screenPhoto.addEventListener('touchstart',e=>{start=e.touches.length===1?[e.touches[0].clientX,e.touches[0].clientY]:null;},{passive:true});
+screenPhoto.addEventListener('touchend',e=>{if(!start)return;const dx=e.changedTouches[0].clientX-start[0],dy=e.changedTouches[0].clientY-start[1];start=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))showPhoto(currentPhoto+(dx<0?1:-1));},{passive:true});
+
+document.querySelectorAll('.space-pics img').forEach(img=>img.parentElement.addEventListener('click',event=>{event.preventDefault();viewer.querySelector('strong').textContent=img.closest('.room-pics')?'Помещение сейчас':'Мудборд будущего пространства';viewer.setAttribute('aria-label',viewer.querySelector('strong').textContent);const group=Array.from(img.closest('.space-pics').querySelectorAll('img'));photos.splice(0,photos.length,...group);openPhotos(group.indexOf(img));}));
+const classPhotoSet=[...photoButtons.map(b=>b.querySelector('img')),...document.querySelectorAll('.album-grid img')];viewer.addEventListener('close',()=>photos.splice(0,photos.length,...classPhotoSet));
+viewer.addEventListener('close',()=>{viewer.querySelector('strong').textContent='Жизнь семейного класса';viewer.setAttribute('aria-label','Фото из жизни класса');});
